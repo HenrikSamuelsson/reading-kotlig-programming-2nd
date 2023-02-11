@@ -1,3 +1,4 @@
 fun main() {
-    println("Hello world!")
+    var playerLevel: Int = 4
+    println(playerLevel)
 }
