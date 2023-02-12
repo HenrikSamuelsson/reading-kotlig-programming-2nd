@@ -12,23 +12,7 @@ fun main() {
     val hasBrefiendedBarbarians = true
     val hasAngeredBarbarians = false
 
-    val quest: String = when (playerLevel) {
-        1 -> "Meet Mr. Bubbles in the land of soft things."
-        in 2..5 -> {
-            // Check wheter diplomacy is an option
-            val canTalkToBarbarinas = !hasAngeredBarbarians &&
-                    (hasBrefiendedBarbarians || playeClass == "barbarian")
-            if (canTalkToBarbarinas) {
-                "Convince the barbarians to call of their invasion."
-            } else {
-                "Save the town from the barbarian invasion"
-            }
-        }
-        6 -> "Locate the enchanted sword."
-        7 -> "Recover the long-lost artifact of creation"
-        8 -> "Defeat Nogartse, bringer of death ant eater of worlds."
-        else -> "There are no quests right now"
-    }
+    val quest: String = obtainQuest(playerLevel, hasAngeredBarbarians, hasBrefiendedBarbarians, playeClass)
 
     println("The hero approaches tho bounty board, It reads:")
     println(quest)
@@ -38,4 +22,31 @@ fun main() {
 
     playerLevel += 1
     println(playerLevel)
+}
+
+private fun obtainQuest(
+    playerLevel: Int,
+    hasAngeredBarbarians: Boolean,
+    hasBrefiendedBarbarians: Boolean,
+    playerClass: String
+): String {
+    val quest: String = when (playerLevel) {
+        1 -> "Meet Mr. Bubbles in the land of soft things."
+        in 2..5 -> {
+            // Check whether diplomacy is an option
+            val canTalkToBarbarians = !hasAngeredBarbarians &&
+                    (hasBrefiendedBarbarians || playerClass == "barbarian")
+            if (canTalkToBarbarians) {
+                "Convince the barbarians to call of their invasion."
+            } else {
+                "Save the town from the barbarian invasion"
+            }
+        }
+
+        6 -> "Locate the enchanted sword."
+        7 -> "Recover the long-lost artifact of creation"
+        8 -> "Defeat Nogartse, bringer of death ant eater of worlds."
+        else -> "There are no quests right now"
+    }
+    return quest
 }
