@@ -27,7 +27,7 @@ fun main() {
 private fun obtainQuest(
     playerLevel: Int,
     hasAngeredBarbarians: Boolean,
-    hasBrefiendedBarbarians: Boolean,
+    hasBrefriendedBarbarians: Boolean,
     playerClass: String
 ): String {
     val quest: String = when (playerLevel) {
@@ -35,7 +35,7 @@ private fun obtainQuest(
         in 2..5 -> {
             // Check whether diplomacy is an option
             val canTalkToBarbarians = !hasAngeredBarbarians &&
-                    (hasBrefiendedBarbarians || playerClass == "barbarian")
+                    (hasBrefriendedBarbarians || playerClass == "barbarian")
             if (canTalkToBarbarians) {
                 "Convince the barbarians to call of their invasion."
             } else {
