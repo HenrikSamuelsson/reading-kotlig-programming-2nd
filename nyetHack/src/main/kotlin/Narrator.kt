@@ -1,3 +1,5 @@
+package nyetHack.src.main.kotlin
+
 val narrationModifier: (String) -> String = { message ->
     val numExclamationPoints = 3
     message.uppercase() + "!".repeat(numExclamationPoints)
