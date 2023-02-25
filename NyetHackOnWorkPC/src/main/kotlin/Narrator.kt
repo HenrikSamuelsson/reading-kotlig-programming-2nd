@@ -3,9 +3,10 @@ import kotlin.random.nextInt
 
 var narrationModifier: (String) -> String = { it }
 fun narrate(
-    message: String
+    message: String,
+    modifier: (String) -> String = { narrationModifier(it)}
 ) {
-    println(narrationModifier(message))
+    println(modifier(message))
 }
 fun changeNarratorMood() {
     val mood: String
