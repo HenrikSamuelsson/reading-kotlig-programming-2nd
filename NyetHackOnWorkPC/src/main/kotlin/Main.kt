@@ -4,6 +4,10 @@ fun main() {
         "\u001b[33;1m$message\u001b[0m"
     }
     val heroName = readlnOrNull() ?: ""
+    require(heroName != null && heroName.isNotEmpty()) {
+        "The hero must have a name."
+    }
+
     changeNarratorMood()
     narrate("$heroName heads to the town square")
 }
