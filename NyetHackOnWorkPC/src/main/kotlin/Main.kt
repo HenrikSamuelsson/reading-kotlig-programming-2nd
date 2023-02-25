@@ -13,6 +13,8 @@ fun main() {
 }
 private fun createTitle(name: String): String {
     return when {
+        name.all { it.isDigit() } -> "The Identifiable"
+        name.none { it.isLetter() } -> "The Witness Protection Member"
         name.count { it.lowercase() in "aeiou" } > 4 -> "The Master of Vowels"
         else -> "The Renowned Hero"
     }
