@@ -9,5 +9,11 @@ fun main() {
     }
 
     changeNarratorMood()
-    narrate("$heroName heads to the town square")
+    narrate("$heroName, ${createTitle(heroName)}, heads to the town square")
+}
+private fun createTitle(name: String): String {
+    return when {
+        name.count { it.lowercase() in "aeiou" } > 4 -> "The Master of Vowels"
+        else -> "The Renowned Hero"
+    }
 }
