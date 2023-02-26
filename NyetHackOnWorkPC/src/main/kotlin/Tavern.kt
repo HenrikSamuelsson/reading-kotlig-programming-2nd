@@ -3,7 +3,7 @@ private const val TAVERN_NAME = "$TAVERN_MASTER's Folly"
 fun visitTavern() {
     narrate("$heroName enters $TAVERN_NAME")
 
-    val patrons = listOf("Eli", "Mordoc", "Sophie")
+    val patrons = mutableListOf("Eli", "Mordoc", "Sophie")
 
     val eliMessage = if (patrons.contains("Eli")) {
         "$TAVERN_MASTER says: Eli's in the back playing cards"
@@ -18,4 +18,11 @@ fun visitTavern() {
         "$TAVERN_MASTER says: Sophie and Mordoc aren't with each other right now"
     }
     println(othersMessage)
+
+    println(patrons)
+    narrate("Eli leaves the tavern")
+    patrons.remove("Eli")
+    narrate("Alex enters the tavern")
+    patrons.add("Alex")
+    println(patrons)
 }
