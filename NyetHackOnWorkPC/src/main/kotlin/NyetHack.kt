@@ -4,6 +4,7 @@ fun main() {
     heroName = promtpHeroName()
     // changeNarratorMood()
     narrate("$heroName, ${createTitle(heroName)}, heads to the town square")
+    visitTavern()
 }
 
 private fun promtpHeroName() : String {
