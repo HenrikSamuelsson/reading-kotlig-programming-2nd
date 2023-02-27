@@ -35,7 +35,7 @@ fun visitTavern() {
 
     patrons.forEachIndexed { index, patron ->
         println("Good evening, $patron - you're #${index + 1} in line")
-        placeOrder(patron, "Dragon's Breath")
+        placeOrder(patron, menuItems.random())
     }
 }
 
