@@ -1,5 +1,12 @@
+import java.io.File
+
 private const val TAVERN_MASTER = "Taernyl"
 private const val TAVERN_NAME = "$TAVERN_MASTER's Folly"
+
+private val menuData = File("data/menu.txt")
+    .readText()
+    .split("\n")
+
 fun visitTavern() {
     narrate("$heroName enters $TAVERN_NAME")
 
