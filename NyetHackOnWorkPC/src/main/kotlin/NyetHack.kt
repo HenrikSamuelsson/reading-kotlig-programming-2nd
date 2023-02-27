@@ -1,13 +1,13 @@
 var heroName: String = ""
 fun main() {
 
-    heroName = promtpHeroName()
+    heroName = promptHeroName()
     // changeNarratorMood()
     narrate("$heroName, ${createTitle(heroName)}, heads to the town square")
     visitTavern()
 }
 
-private fun promtpHeroName() : String {
+private fun promptHeroName() : String {
     narrate("A hero enters the town of Kronstadt. What is their name?") { message ->
         // Prints the message in yellow
         "\u001b[33;1m$message\u001b[0m"
@@ -21,9 +21,9 @@ private fun promtpHeroName() : String {
     return input
     */
 
-    val HERO_NAME = "Madrigal"
-    println("$HERO_NAME")
-    return HERO_NAME
+    val heroName = "Madrigal"
+    println(heroName)
+    return heroName
 }
 private fun createTitle(name: String): String {
     return when {
