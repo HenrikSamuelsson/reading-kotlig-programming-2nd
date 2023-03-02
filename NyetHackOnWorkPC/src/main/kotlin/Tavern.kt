@@ -33,12 +33,27 @@ fun visitTavern() {
 
     narrate("$heroName sees several patrons in the tavern:")
     narrate(patrons.joinToString())
+
+    println(patronGold)
     repeat(3) {
-        placeOrder(patrons.random(), menuItems.random())
+        placeOrder(patrons.random(), menuItems.random(), patronGold)
     }
+    println(patronGold)
 }
 
-private fun placeOrder(patronName: String, menuItemName: String) {
+private fun placeOrder(
+    patronName: String,
+    menuItemName: String,
+    patronGold: MutableMap<String, Double>
+) {
+    val itemPrice = 1.0
     narrate("$patronName speaks with $TAVERN_MASTER to place an order")
-    narrate("$TAVERN_MASTER hands $patronName a $menuItemName")
+    if (itemPrice <= patronGold.getOrDefault(patronName, 0.0)) {
+        narrate("$TAVERN_MASTER hands $patronName a $menuItemName")
+        narrate("$patronName pays $TAVERN_MASTER $itemPrice gold")
+        patronGold[patronName] = patronGold.getValue(patronName) - itemPrice
+        patronGold[TAVERN_MASTER] = patronGold.getValue(TAVERN_MASTER) + itemPrice
+    } else {
+        narrate("$TAVERN_MASTER says, \"You need more coin for a $menuItemName\"")
+    }
 }
