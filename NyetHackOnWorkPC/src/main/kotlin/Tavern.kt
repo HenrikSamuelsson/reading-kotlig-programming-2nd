@@ -25,7 +25,7 @@ fun visitTavern() {
         TAVERN_MASTER to 86.00,
         heroName to 4.50
     )
-    while (patrons.size < 10) {
+    while (patrons.size < 5) {
         val patronName = "${firstNames.random()} ${lastNames.random()}"
         patrons += patronName
         patronGold += patronName to 6.0
