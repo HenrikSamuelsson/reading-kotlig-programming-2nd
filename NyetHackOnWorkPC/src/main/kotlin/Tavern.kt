@@ -51,7 +51,7 @@ private fun placeOrder(
     menuItemName: String,
     patronGold: MutableMap<String, Double>
 ) {
-    val itemPrice = 1.0
+    val itemPrice = menuItemPrices.getValue(menuItemName)
     narrate("$patronName speaks with $TAVERN_MASTER to place an order")
     if (itemPrice <= patronGold.getOrDefault(patronName, 0.0)) {
         narrate("$TAVERN_MASTER hands $patronName a $menuItemName")
