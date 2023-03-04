@@ -1,8 +1,10 @@
+import main.kotlin.narrate
+
 var heroName: String = ""
 fun main() {
 
     heroName = promptHeroName()
-    // changeNarratorMood()
+    // main.kotlin.changeNarratorMood()
     narrate("$heroName, ${createTitle(heroName)}, heads to the town square")
     visitTavern()
 }

@@ -1,3 +1,4 @@
+import main.kotlin.narrate
 import java.io.File
 
 private const val TAVERN_MASTER = "Taernyl"
@@ -6,7 +7,7 @@ private const val TAVERN_NAME = "$TAVERN_MASTER's Folly"
 private val firstNames = setOf("Alex", "Mordoc", "Sophie", "Tariq")
 private val lastNames = setOf("Ironfoot", "Fernsworth", "Baggins", "Downstrider")
 
-private val menuData = File("data/menu.txt")
+private val menuData = File("C:\\git_repos\\reading-kotling-programming-2nd\\NyetHackOnWorkPC\\data\\menu.txt")
     .readText()
     .split("\n")
 
